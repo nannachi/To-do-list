@@ -11,9 +11,24 @@ addBtn.addEventListener("click", function() {
 
     const li = document.createElement("li");
 
-    li.textContent = taskText;
+    const span = document.createElement("span");
+    span.textContent = taskText;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Elimina";
+    deleteBtn.classList.add("delete-btn");
+
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
 
     taskList.appendChild(li);
 
     input.value = "";
+});
+
+//CLICK SU AGGIUNGI CON INVIO//
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        addBtn.click();
+    }
 });
