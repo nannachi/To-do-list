@@ -112,3 +112,14 @@ body {
             margin-top: 5px;
             display: none;
         }
+
+        /*CONTATORE*/
+
+        #task-counter {
+        text-align: center;
+        color: #8B5CF6;
+        font-size: 14px;
+        margin-bottom: 20px;
+        }
+        
+    

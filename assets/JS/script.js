@@ -2,9 +2,16 @@ const addBtn = document.getElementById("add-task-btn");
 const input = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
 const errorMessage = document.getElementById("error-message");
+const taskCounter = document.getElementById("task-counter");
+
+function updateCounter() {
+    const totalTasks = taskList.children.length;
+    taskCounter.textContent = totalTasks + " attività totali";
+}
 
 addBtn.addEventListener("click", function() {
     const taskText = input.value;
+
 
 //CONTROLLO CAMPO VUOTO//
     if (taskText.trim() === "") {
@@ -20,7 +27,7 @@ addBtn.addEventListener("click", function() {
 
     const span = document.createElement("span");
     span.textContent = taskText;
-    
+
 //PULSANTE ELIMINA//
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Elimina";
@@ -30,6 +37,7 @@ addBtn.addEventListener("click", function() {
     li.appendChild(deleteBtn);
 
     taskList.appendChild(li);
+    updateCounter();
 
     input.value = "";
 });
@@ -48,6 +56,7 @@ taskList.addEventListener("click", function(event) {
 
    if (target.classList.contains("delete-btn")) {
     target.parentElement.remove();
+    updateCounter();
     }
 
     if (target.tagName === "SPAN") {
