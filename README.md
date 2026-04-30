@@ -20,5 +20,5 @@ Una semplice applicazione To-Do sviluppata con **HTML, CSS e JavaScript**, creat
 
 ## 📸 Screenshot
 
-![Screenshot To-Do List](assets/img/screenshot.png)
+![Screenshot To-Do List](assets/img/assets/IMG/Screenshot 2026-04-30 104851.png)
 
