@@ -1,13 +1,19 @@
 const addBtn = document.getElementById("add-task-btn");
 const input = document.getElementById("task-input");
 const taskList = document.getElementById("task-list");
+const errorMessage = document.getElementById("error-message");
 
 addBtn.addEventListener("click", function() {
     const taskText = input.value;
 
-    if (taskText === "") {
+    if (taskText.trim() === "") {
+        errorMessage.textContent = "Il campo è vuoto";
+        errorMessage.style.display = "block";
         return;
     }
+
+    errorMessage.style.display = "none";
+
 
     const li = document.createElement("li");
 
@@ -26,7 +32,7 @@ addBtn.addEventListener("click", function() {
     input.value = "";
 });
 
-//CLICK SU AGGIUNGI CON INVIO//
+//CLICK SU AGGIUNGI CON INVIO TASIERA//
 input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         addBtn.click();

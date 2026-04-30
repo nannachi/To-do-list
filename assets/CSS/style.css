@@ -1,6 +1,6 @@
 body {
             font-family: inter, sans-serif;
-            background: linear-gradient(135deg, #F5F6F8, #E6E8EC);
+            background: linear-gradient(135deg, #fdf2f8, #fbcfe8, #e9d5ff);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -12,7 +12,7 @@ body {
             background: white;
             padding: 25px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 30px rgba(167,139,250,0.2);
         }
         h1 {
             text-align: center;
@@ -106,4 +106,9 @@ body {
             }
         }
 
-        
+        #error-message {
+            color: #EF4444;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
