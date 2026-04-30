@@ -63,8 +63,15 @@ taskList.addEventListener("click", function(event) {
    const target = event.target;
 
    if (target.classList.contains("delete-btn")) {
-    target.parentElement.remove();
+    const taskItem = target.parentElement;
+
+    taskItem.classList.add("removing");
+
+    setTimeout(function() {
+    taskItem.remove();
     updateCounter();
+    }, 300);
+
     }
 
     if (target.classList.contains("task-checkbox")) {
