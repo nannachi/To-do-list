@@ -6,6 +6,7 @@ const errorMessage = document.getElementById("error-message");
 addBtn.addEventListener("click", function() {
     const taskText = input.value;
 
+//CONTROLLO CAMPO VUOTO//
     if (taskText.trim() === "") {
         errorMessage.textContent = "Il campo è vuoto";
         errorMessage.style.display = "block";
@@ -19,7 +20,8 @@ addBtn.addEventListener("click", function() {
 
     const span = document.createElement("span");
     span.textContent = taskText;
-
+    
+//PULSANTE ELIMINA//
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Elimina";
     deleteBtn.classList.add("delete-btn");
@@ -38,3 +40,19 @@ input.addEventListener("keydown", function(event) {
         addBtn.click();
     }
 });
+
+//ELIMINARE VOCE AGGIUNTA//
+
+taskList.addEventListener("click", function(event) {
+   const target = event.target;
+
+   if (target.classList.contains("delete-btn")) {
+    target.parentElement.remove();
+    }
+
+    if (target.tagName === "SPAN") {
+        target.parentElement.classList.toggle("completed");
+    }
+});
+
+//
