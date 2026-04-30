@@ -6,7 +6,9 @@ const taskCounter = document.getElementById("task-counter");
 
 function updateCounter() {
     const totalTasks = taskList.children.length;
-    taskCounter.textContent = totalTasks + " attività totali";
+   
+    const completedTasks = document.querySelectorAll(".completed").length;
+    taskCounter.textContent = `${completedTasks} completate / ${totalTasks} totali`;
 }
 
 addBtn.addEventListener("click", function() {
@@ -28,11 +30,17 @@ addBtn.addEventListener("click", function() {
     const span = document.createElement("span");
     span.textContent = taskText;
 
+    //CHECKBOX//
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("task-checkbox");
+
 //PULSANTE ELIMINA//
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Elimina";
     deleteBtn.classList.add("delete-btn");
 
+    li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
@@ -59,9 +67,10 @@ taskList.addEventListener("click", function(event) {
     updateCounter();
     }
 
-    if (target.tagName === "SPAN") {
+    if (target.classList.contains("task-checkbox")) {
         target.parentElement.classList.toggle("completed");
+        updateCounter();
     }
-});
+    }
+);
 
-//
